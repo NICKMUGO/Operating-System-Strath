@@ -1,0 +1,4 @@
+repository "Stratizens(O.S)3D@Stratizens@cloud"
+  path "/"
+    br "/main"
+    co "/main"
