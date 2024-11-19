@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e950316146882540a862b85bc15ae21, type: 3}
   m_Name: Bird1
   m_EditorClassIdentifier: 
-  bird: {fileID: 4839231315209424966, guid: a6ae64a291df042458a1e2add59dc500, type: 3}
-  Id: 0
-  BurstTime: 0
+  processName: Bird1
+  BurstTime: 5
   ArrivalTime: 0
   WaitingTime: 0
+  remainingBurstTime: 0
   TurnaroundTime: 0

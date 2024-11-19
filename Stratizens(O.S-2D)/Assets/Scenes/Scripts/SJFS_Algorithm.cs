@@ -7,15 +7,13 @@ public class SJFS_Algorithm : MonoBehaviour
 {
     public Process process;
 
-    private Renderer birdRenderer;
+    private SpriteRenderer birdRenderer;
     void Start()
     {
-        birdRenderer = GetComponent<Renderer>();
+        birdRenderer = GetComponent<SpriteRenderer>();
         birdRenderer.enabled=false; 
         
     }
-
-    // Update is called once per frame
     public void StartExecution()
     {
         if(birdRenderer !=null){
@@ -27,7 +25,7 @@ public class SJFS_Algorithm : MonoBehaviour
     {
         if (birdRenderer != null)
         {
-            birdRenderer.enabled = false; // Make bird invisible
+            birdRenderer.enabled = false; 
         }
     }
     public void Excecute(float deltaTime){
@@ -45,6 +43,5 @@ public class SJFS_Algorithm : MonoBehaviour
             renderer.enabled= false;
         }
         Debug.Log("Im in");
-        // Destroy(gameObject);
     }
 }

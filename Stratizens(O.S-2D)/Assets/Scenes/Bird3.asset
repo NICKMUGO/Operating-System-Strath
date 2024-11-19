@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Bird3
   m_EditorClassIdentifier: 
   bird: {fileID: 0}
-  processName: 
-  BurstTime: 0
-  ArrivalTime: 0
+  processName: Bird3
+  BurstTime: 2
+  ArrivalTime: 4
   WaitingTime: 0
   remainingBurstTime: 0
   TurnaroundTime: 0

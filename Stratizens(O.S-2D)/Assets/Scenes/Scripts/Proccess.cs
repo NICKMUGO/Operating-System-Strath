@@ -3,13 +3,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewProcess", menuName = "Process")]
 public class Process : ScriptableObject
 {
-    public GameObject bird;
-
     public string processName; 
     public int BurstTime;
     public int ArrivalTime;
     public int WaitingTime;
 
-    public float remainingBurstTime;
+    [HideInInspector] public float remainingBurstTime;
     public int TurnaroundTime;
+
+    private void OnEnable()
+    {
+        remainingBurstTime = BurstTime; 
+    }
 }
