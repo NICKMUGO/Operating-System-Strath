@@ -34,6 +34,21 @@ public int attackDamage = 40;
           }
 }
 
+public void DealDamage(EnemyTracker enemy, float damage)
+    {
+        if (enemy.isProcessing)
+        {
+            // Apply damage logic here
+            enemy.health -= damage;
+
+            if (enemy.health <= 0)
+            {
+                enemy.RecordDeath(); // Notify when the enemy dies
+            }
+        }
+    }
+
+
 void OnDrawGizmosSelected()
 {
     if(attackPoint == null)
