@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Proccess_Manager : MonoBehaviour
 {
-    // Start is called before the first frame update
     public List<SJFS_Algorithm> birds;
     private SJFS_Algorithm currentBird;
     private float elapsedTime = 0f;
@@ -24,8 +23,6 @@ public class Proccess_Manager : MonoBehaviour
             Debug.Log($"Bird {bird.name}: ArrivalTime = {bird.process.ArrivalTime}");
         }
     }
-
-    // Update is called once per frame
     void Update()
     {
         elapsedTime += Time.deltaTime;
@@ -60,7 +57,7 @@ public class Proccess_Manager : MonoBehaviour
 
         if (currentBird !=null){
             Debug.Log($"Executing {currentBird.name}");
-            currentBird.Excecute(Time.deltaTime);
+            currentBird.Execute(Time.deltaTime);
         }
     }
 }
