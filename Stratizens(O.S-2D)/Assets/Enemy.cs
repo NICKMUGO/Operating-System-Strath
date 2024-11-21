@@ -8,9 +8,12 @@ public class Enemy : MonoBehaviour
     public float speed = 10f; // Movement speed
     private Transform target; // Target to follow (player)
 
+    private Animator animator;
+
     void Start()
     {
         currentHealth = maxHealth;
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -26,23 +29,41 @@ public class Enemy : MonoBehaviour
         target = playerTarget; // Set the player as the target
     }
 
-    void MoveTowardsTarget()
-    {
-        // Move the enemy towards the player's position
-        Vector3 direction = (target.position - transform.position).normalized;
-        transform.position += direction * speed * Time.deltaTime;
+   void MoveTowardsTarget()
+{
+    Vector3 direction = (target.position - transform.position).normalized;
 
-        // Optional: Rotate the enemy to face the player
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+    // Move towards the target
+    if (direction.magnitude > 0.1f) // Check if there is significant movement
+    {
+        animator.SetBool("isMoving", true); // Enable running animation
+        transform.position += direction * speed * Time.deltaTime;
     }
+    else
+    {
+        animator.SetBool("isMoving", false); // Stop running animation
+    }
+
+    // Optional: Flip the sprite for 2D games
+    if (direction.x < 0)
+        transform.localScale = new Vector3(-1, 1, 1); // Flip horizontally
+    else
+        transform.localScale = new Vector3(1, 1, 1);  // Default orientation
+}
+
+
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        Debug.Log("Damage Taken");
+        if (currentHealth <= 0) return;
 
-        if (currentHealth <= 0)
+        currentHealth -= damage;
+
+        if (currentHealth > 0)
+        {
+            animator.SetTrigger("Hurt");
+        }
+        else
         {
             Die();
         }
@@ -50,7 +71,10 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Enemy Died");
-        Destroy(gameObject);
+        animator.SetTrigger("Death");
+        speed = 0;
+        GetComponent<Collider2D>().enabled = false;
+        this.enabled = false;
+        Destroy(gameObject, 0.3f);
     }
 }
