@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
+    //to be able to jump and double jump
+    //serialized fields to be able to change the values in the inspector
    [SerializeField] private Rigidbody2D rigidBody;
    [SerializeField] private SpriteRenderer spriteRenderer;
    [SerializeField] private float jumpForce = 6; 
