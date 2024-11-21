@@ -38,5 +38,8 @@ public class CarController : MonoBehaviour
             signalManager.ExitJunction(); // Notify SignalManager that the car has exited the junction
             Destroy(gameObject, 1f); // Optional: Destroy the car after it exits
         }
+        
+
     }
+   
 }
