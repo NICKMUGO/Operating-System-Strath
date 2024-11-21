@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DamageSound : MonoBehaviour
 {
+    //added sounds for when the player takes damage
     private AudioSource audioSource;
 
     void Start()
