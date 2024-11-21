@@ -10,6 +10,14 @@ public class ShootingScript : MonoBehaviour
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
         rb.AddForce(muzzlePoint.forward * projectileSpeed, ForceMode.Impulse);
 
-        // Add muzzle flash and sound effects here
+         // Play muzzle flash
+        muzzleFlash.Play();
+
+        // Play shot sound
+        shotSound.PlayOneShot(shotSound.clip);
+
+        // Add recoil animation here (optional)
         // ...
     }
+
+}
