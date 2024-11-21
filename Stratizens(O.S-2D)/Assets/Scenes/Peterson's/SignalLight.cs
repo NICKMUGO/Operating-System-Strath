@@ -19,10 +19,7 @@ public class SignalLight : MonoBehaviour
         if (signalManager.greenLightLaneID == laneID && !signalManager.isJunctionOccupied)
         {
             spriteRenderer.color = Color.green; // Green for go
-        }
-        else
-        {
-            spriteRenderer.color = Color.red; // Red for stop
+            
         }
     }
 }
